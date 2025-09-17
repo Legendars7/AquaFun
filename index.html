@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaFun</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Spectacular AquaFun Title */
+    h1 {
+      font-size: 4rem; /* Big size */
+      color: #00b4d8; /* Bright aqua blue */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Glow effect */
+      margin-top: 10px;
+      animation: float 3s ease-in-out infinite; /* Gentle floating animation */
+      letter-spacing: 3px;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    p {
+      max-width: 600px;
+      margin: 10px auto 30px;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    input[type="file"] {
+      margin: 20px 0;
+    }
+
+    video {
+      display: none;
+      margin: 20px auto;
+      border: 2px solid #0077b6;
+      border-radius: 8px;
+      display: block;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005f87;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AquaFun</h1>
+  <p>Discover the fascinating world of fish — their habitats, behaviors, and unique traits — right from your aquarium videos.</p>
+
+  <input type="file" accept="video/*" id="videoInput">
+  
+  <video id="videoPreview" width="500" controls></video>
+  
+  <button id="explanationBtn" style="display:none;">Explanation</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
