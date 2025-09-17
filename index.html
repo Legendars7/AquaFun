@@ -8,32 +8,56 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #f0f8ff;
+      background-color: #e0f7fa;
       margin: 0;
       padding: 20px;
     }
 
     /* Spectacular AquaFun Title */
     h1 {
-      font-size: 4rem; /* Big size */
-      color: #00b4d8; /* Bright aqua blue */
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Glow effect */
+      font-size: 4rem;
+      color: #00b4d8;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
       margin-top: 10px;
-      animation: float 3s ease-in-out infinite; /* Gentle floating animation */
+      animation: float 3s ease-in-out infinite;
       letter-spacing: 3px;
     }
 
-    /* Floating animation */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
 
-    p {
-      max-width: 600px;
-      margin: 10px auto 30px;
-      color: #333;
+    /* Unique description box */
+    .description {
+      max-width: 650px;
+      margin: 20px auto 40px;
+      padding: 15px 20px;
+      background: linear-gradient(135deg, rgba(0,180,216,0.15), rgba(144,224,239,0.15));
+      border-left: 5px solid #00b4d8;
+      border-radius: 10px;
       font-size: 1.1rem;
+      color: #023e8a;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Upload heading style */
+    .upload-heading {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0077b6;
+      margin-top: 50px; /* space from description */
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #00b4d8, #90e0ef);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1.5s ease;
     }
 
     input[type="file"] {
@@ -68,13 +92,19 @@
 <body>
 
   <h1>AquaFun</h1>
-  <p>Discover the fascinating world of fish — their habitats, behaviors, and unique traits — right from your aquarium videos.</p>
+  
+  <div class="description">
+    Discover the fascinating world of fish — their habitats, behaviors, and unique traits — right from your aquarium videos.
+  </div>
+
+  <!-- New inviting heading -->
+  <div class="upload-heading">📹 Give us your aquarium video</div>
 
   <input type="file" accept="video/*" id="videoInput">
   
   <video id="videoPreview" width="500" controls></video>
   
-  <button id="explanationBtn" style="display:none;">Explanation</button>
+  <button id="explanationBtn" style="display:none;">🐠 Reveal the Secrets of Your Fish</button>
 
   <script src="script.js"></script>
 </body>
