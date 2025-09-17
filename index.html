@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AquaFun</title>
   <style>
     body {
@@ -13,12 +13,60 @@
       padding: 20px;
     }
 
+    /* Header container for logo + nav */
+    .header {
+      position: absolute;
+      top: 40px;
+      left: 200px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    /* Unique AquaFun logo */
+    .top-left-logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      padding: 8px 16px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Trebuchet MS', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .top-left-logo span {
+      font-size: 1.4rem;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0077b6;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #023e8a;
+    }
+
     /* Spectacular AquaFun Title */
     h1 {
       font-size: 4rem;
       color: #00b4d8;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-      margin-top: 10px;
+      margin-top: 200px;
       animation: float 3s ease-in-out infinite;
       letter-spacing: 3px;
     }
@@ -52,7 +100,7 @@
       font-size: 1.5rem;
       font-weight: bold;
       color: #0077b6;
-      margin-top: 80px; /* space from description */
+      margin-top: 80px;
       margin-bottom: 15px;
       background: linear-gradient(90deg, #00b4d8, #90e0ef);
       -webkit-background-clip: text;
@@ -91,18 +139,29 @@
 </head>
 <body>
 
-  <h1>AquaFun</h1>
+  <!-- Header with logo + nav -->
+  <div class="header">
+    <div class="top-left-logo">
+      <span>🌊</span> AquaFun
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="why.html">Why</a>
+    </div>
+  </div>
+
+  <h1>Welcome AquaFun</h1>
   
   <div class="description">
     Discover the fascinating world of fish — their habitats, behaviors, and unique traits — right from your aquarium videos.
   </div>
 
-  <!-- New inviting heading -->
   <div class="upload-heading">📹 Give us your aquarium video</div>
 
   <input type="file" accept="video/*" id="videoInput">
   
-  <video id="videoPreview" width="500" controls></video>
+  <video id="videoPreview" controls></video>
   
   <button id="explanationBtn" style="display:none;">🐠 Reveal the Secrets of Your Fish</button>
 
