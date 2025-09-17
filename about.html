@@ -13,6 +13,7 @@
       padding: 20px;
     }
 
+    /* Header container for logo + nav */
     .header {
       position: absolute;
       top: 40px;
@@ -20,8 +21,11 @@
       display: flex;
       align-items: center;
       gap: 30px;
+      width: calc(100% - 240px);
+      justify-content: space-between;
     }
 
+    /* Unique AquaFun logo */
     .top-left-logo {
       font-size: 1.8rem;
       font-weight: bold;
@@ -41,6 +45,7 @@
       font-size: 1.4rem;
     }
 
+    /* Desktop nav links */
     .nav-links {
       display: flex;
       gap: 20px;
@@ -50,12 +55,67 @@
       text-decoration: none;
       color: #0077b6;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 1.3rem;
       transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
       color: #023e8a;
+    }
+
+    /* Mobile menu icon (hidden on desktop) */
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #0077b6;
+    }
+
+    /* Mobile dropdown menu (hidden by default) */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .mobile-menu a {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #0077b6;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover {
+      background: #f0f8ff;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      .header {
+        left: 20px;
+        right: 20px;
+        justify-content: space-between;
+        width: calc(100% - 40px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
     }
 
     h1 {
@@ -75,11 +135,21 @@
 </head>
 <body>
 
+  <!-- Header with logo + nav -->
   <div class="header">
     <div class="top-left-logo">
       <span>🌊</span> AquaFun
     </div>
+
     <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="why.html">Why</a>
+    </div>
+
+    <div class="menu-icon" onclick="toggleMenu()">⋮</div>
+
+    <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="why.html">Why</a>
@@ -93,5 +163,11 @@
     Our mission is to make learning about aquatic life fun, engaging, and accessible to everyone.
   </p>
 
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
 </body>
 </html>
