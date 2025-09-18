@@ -12,8 +12,6 @@
       margin: 0;
       padding: 20px;
     }
-
-    /* Header container for logo + nav */
     .header {
       position: absolute;
       top: 40px;
@@ -24,8 +22,6 @@
       width: calc(100% - 240px);
       justify-content: space-between;
     }
-
-    /* Unique AquaFun logo */
     .top-left-logo {
       font-size: 1.8rem;
       font-weight: bold;
@@ -40,17 +36,8 @@
       font-family: 'Trebuchet MS', sans-serif;
       letter-spacing: 1px;
     }
-
-    .top-left-logo span {
-      font-size: 1.4rem;
-    }
-
-    /* Desktop nav links */
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
+    .top-left-logo span { font-size: 1.4rem; }
+    .nav-links { display: flex; gap: 20px; }
     .nav-links a {
       text-decoration: none;
       color: #0077b6;
@@ -58,20 +45,8 @@
       font-size: 1.3rem;
       transition: color 0.3s ease;
     }
-
-    .nav-links a:hover {
-      color: #023e8a;
-    }
-
-    /* Mobile menu icon (hidden on desktop) */
-    .menu-icon {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #0077b6;
-    }
-
-    /* Mobile dropdown menu (hidden by default) */
+    .nav-links a:hover { color: #023e8a; }
+    .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: #0077b6; }
     .mobile-menu {
       display: none;
       position: absolute;
@@ -83,7 +58,6 @@
       flex-direction: column;
       z-index: 1000;
     }
-
     .mobile-menu a {
       padding: 10px 20px;
       text-decoration: none;
@@ -91,34 +65,13 @@
       font-weight: bold;
       border-bottom: 1px solid #eee;
     }
-
-    .mobile-menu a:last-child {
-      border-bottom: none;
-    }
-
-    .mobile-menu a:hover {
-      background: #f0f8ff;
-    }
-
-    /* Responsive rules */
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { background: #f0f8ff; }
     @media (max-width: 768px) {
-      .header {
-        left: 20px;
-        right: 20px;
-        justify-content: space-between;
-        width: calc(100% - 40px);
-      }
-
-      .nav-links {
-        display: none; /* hide desktop nav */
-      }
-
-      .menu-icon {
-        display: block; /* show 3-dots icon */
-      }
+      .header { left: 20px; right: 20px; justify-content: space-between; width: calc(100% - 40px); }
+      .nav-links { display: none; }
+      .menu-icon { display: block; }
     }
-
-    /* Spectacular AquaFun Title */
     h1 {
       font-size: 4rem;
       color: #00b4d8;
@@ -127,13 +80,7 @@
       animation: float 3s ease-in-out infinite;
       letter-spacing: 3px;
     }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    /* Unique description box */
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     .description {
       max-width: 650px;
       margin: 20px auto 40px;
@@ -146,13 +93,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       animation: fadeIn 1.5s ease;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Upload heading style */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .upload-heading {
       font-size: 1.5rem;
       font-weight: bold;
@@ -164,56 +105,46 @@
       -webkit-text-fill-color: transparent;
       animation: fadeIn 1.5s ease;
     }
-
-    input[type="file"] {
-      margin: 20px 0;
+    input[type="file"] { margin: 20px 0; }
+    .video-container { 
+      position: relative; 
+      display: inline-block; 
+      max-width: 100%
     }
-
     video {
       display: none;
-      margin: 20px auto;
+      width: 100%;
       border: 2px solid #0077b6;
       border-radius: 8px;
       max-width: 100%;
       height: auto;
     }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #0077b6;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;           /* Match video width */
+      height: 100%;          /* Match video height */
+      pointer-events: none;
     }
 
-    button:hover {
-      background-color: #005f87;
+    @media (max-width: 768px) {
+      .video-container {
+      width: 100%;
     }
+}
   </style>
 </head>
 <body>
 
-  <!-- Header with logo + nav -->
   <div class="header">
-    <div class="top-left-logo">
-      <span>🌊</span> AquaFun
-    </div>
-
-    <!-- Desktop navigation -->
+    <div class="top-left-logo"><span>🌊</span> AquaFun</div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="why.html">Why</a>
     </div>
-
-    <!-- Mobile menu icon -->
     <div class="menu-icon" onclick="toggleMenu()">⋮</div>
-
-    <!-- Mobile dropdown menu -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -222,33 +153,26 @@
   </div>
 
   <h1>Welcome to AquaFun</h1>
-  
   <div class="description">
     Discover the fascinating world of fish — their habitats, behaviors, and unique traits — right from your aquarium videos.
   </div>
 
   <div class="upload-heading">📹 Give us your aquarium video</div>
-
   <input type="file" accept="video/*" id="videoInput">
-  
-  <video id="videoPreview" controls></video>
-  
-  <button id="explanationBtn" style="display:none;">🐠 Reveal the Secrets of Your Fish</button>
+
+  <div class="video-container">
+    <video id="videoPreview" controls></video>
+    <canvas id="overlay"></canvas>
+  </div>
 
   <script>
-    // Toggle mobile menu
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    // Video preview logic
     const fileInput = document.getElementById('videoInput');
     const videoPreview = document.getElementById('videoPreview');
-    const explanationBtn = document.getElementById('explanationBtn');
-
-    videoPreview.style.display = 'none';
-    explanationBtn.style.display = 'none';
 
     fileInput.addEventListener('change', () => {
       const file = fileInput.files[0];
@@ -256,15 +180,9 @@
         const videoURL = URL.createObjectURL(file);
         videoPreview.src = videoURL;
         videoPreview.style.display = 'block';
-        explanationBtn.style.display = 'inline-block';
       } else {
         videoPreview.style.display = 'none';
-        explanationBtn.style.display = 'none';
       }
-    });
-
-    explanationBtn.addEventListener('click', () => {
-      alert("This is where we will show the fish's behavior and habitat information.");
     });
   </script>
 </body>
